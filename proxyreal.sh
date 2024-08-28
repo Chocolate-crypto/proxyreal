@@ -43,10 +43,24 @@ module.exports = {
   networks: {
     swisstronik: {
       url: "https://json-rpc.testnet.swisstronik.com/",
-      accounts: [\`0x\${process.env.PRIVATE_KEY}\`],
+      accounts: [`0x${process.env.PRIVATE_KEY}`],
     },
   },
+  etherscan: {
+    apiKey: `ANY_STRING_WILL_DO`,  // Replace with your actual Etherscan API key if you have one
+    customChains: [
+      {
+        network: "swisstronik",
+        chainId: 1291,
+        urls: {
+          apiURL: "https://explorer-evm.testnet.swisstronik.com/api",
+          browserURL: "https://explorer-evm.testnet.swisstronik.com",
+        },
+      },
+    ],
+  },
 };
+
 EOL
 echo "Hardhat configuration completed."
 
